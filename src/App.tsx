@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 
 class App extends Component {
+
   render() {
+
+    for (let i = 0; i < 5; i++) {
+      console.log('cpt', i)
+    }
+
     return (
       <div className="App">
         <header className="App-header">
