@@ -1,0 +1,106 @@
+[
+    {
+        "shops": [
+            {
+                "needs": [0],
+                "rewards": [
+                    {
+                        "type": 4,
+                        "value": [1, 2, 3]
+                    }
+                ]
+            },
+            {
+                "needs": [1],
+                "rewards": [{
+                    "type": 3
+                }]
+            },
+            {
+                "needs": [2, 3],
+                "rewards": [{
+                    "type": 0,
+                    "value": 6
+                }]
+            }
+        ]
+    },
+    {
+        "shops": [
+            {
+                "needs": [2],
+                "rewards": [
+                    {
+                        "type": 4,
+                        "value": [0, 1, 3]
+                    }
+                ]
+            },
+            {
+                "needs": [0],
+                "rewards": [{
+                    "type": 3
+                }]
+            },
+            {
+                "needs": [1, 3],
+                "rewards": [{
+                    "type": 0,
+                    "value": 6
+                }]
+            }
+        ]
+    },
+    {
+        "shops": [
+            {
+                "needs": [1],
+                "rewards": [
+                    {
+                        "type": 4,
+                        "value": [0, 2, 3]
+                    }
+                ]
+            },
+            {
+                "needs": [3],
+                "rewards": [{
+                    "type": 3
+                }]
+            },
+            {
+                "needs": [2, 0],
+                "rewards": [{
+                    "type": 0,
+                    "value": 6
+                }]
+            }
+        ]
+    },
+    {
+        "shops": [
+            {
+                "needs": [3],
+                "rewards": [
+                    {
+                        "type": 4,
+                        "value": [0, 1, 2]
+                    }
+                ]
+            },
+            {
+                "needs": [2],
+                "rewards": [{
+                    "type": 3
+                }]
+            },
+            {
+                "needs": [1, 0],
+                "rewards": [{
+                    "type": 0,
+                    "value": 6
+                }]
+            }
+        ]
+    }
+]

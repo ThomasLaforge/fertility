@@ -6,10 +6,6 @@ class App extends Component {
 
   render() {
 
-    for (let i = 0; i < 5; i++) {
-      console.log('cpt', i)
-    }
-
     return (
       <div className="App">
         <header className="App-header">
