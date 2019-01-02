@@ -1,11 +1,18 @@
 import { MapPart } from "./MapPart";
+import { Tile } from "./Tile";
 
 export class Board {
 
-    public parts: MapPart[]
+    public tiles: Tile[][]
 
     constructor(parts: MapPart[]){
-        this.parts = parts
+        let tiles: Tile[][] = []
+        
+        parts.forEach( mapPart => {
+            // mapPart.
+        })
+
+        this.tiles = tiles
     }
 
 }
