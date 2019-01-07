@@ -1,4 +1,4 @@
-import { Symbol } from "./Fertility";
+import { Symbol, IPosition } from "./Fertility";
 import { Metropolis } from "./Metropolis";
 import { ValleyTile } from "./ValleyTile";
 import { District } from "./District";
@@ -13,9 +13,10 @@ export class Player {
     public metropolis: Metropolis
     public symbol: Symbol
     public cornCount: number
+    public monuments: IPosition[] 
 
     constructor(
-        name: string, symbol: Symbol, metropolis: Metropolis, tiles: ValleyTile[] = [], 
+        name: string, symbol: Symbol, metropolis: Metropolis, monuments: IPosition[] = [], tiles: ValleyTile[] = [], 
         cornCount = 0, districts = new Array(7).fill(null), id = uuidv4()
     ){
         this.name = name
@@ -25,6 +26,16 @@ export class Player {
         this.metropolis = metropolis
         this.symbol = symbol
         this.cornCount = cornCount
+        this.monuments = monuments
     }
 
+    get cornScore(){
+        let scores = [0, 2, 4, 7, 10, 14, 18, 23, 28, 34, 40]
+        let index = this.cornCount >= scores.length ? scores.length - 1 : this.cornCount
+        return scores[index]
+    }
+
+    getNbMonumentsBuilt(){
+        return this.monuments.length
+    }
 }
