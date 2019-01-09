@@ -10,4 +10,8 @@ export class Metropolis {
         this.shops = shops.concat(defaultShop)
     }
 
+    getScore(){
+        return this.shops.reduce( (total, s) => total + s.score, 0)
+    }
+
 }

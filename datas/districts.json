@@ -97,7 +97,6 @@
     {
         "shops": [
             {
-                "nolimit": true,
                 "needs": [0],
                 "rewards": [{ "type": 2, "value": { "resource": 0, "multipicator": 1 }}]
             }
@@ -107,7 +106,6 @@
     {
         "shops": [
             {
-                "nolimit": true,
                 "needs": [1],
                 "rewards": [{ "type": 2, "value": { "resource": 1, "multipicator": 1 }}]
             }
@@ -117,7 +115,6 @@
     {
         "shops": [
             {
-                "nolimit": true,
                 "needs": [2],
                 "rewards": [{ "type": 2, "value": { "resource": 2, "multipicator": 1 }}]
             }
@@ -127,7 +124,6 @@
     {
         "shops": [
             {
-                "nolimit": true,
                 "needs": [3],
                 "rewards": [{ "type": 2, "value": { "resource": 3, "multipicator": 1 }}]
             }
