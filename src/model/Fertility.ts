@@ -1,3 +1,6 @@
+import { Tile } from "./Tile";
+import { ValleyTile } from "./ValleyTile";
+
 export enum Resource {
     Alabaster = 0,
     Bovines = 1,
@@ -68,4 +71,9 @@ export enum Orientation {
 export interface IPosition {
     x: number,
     y: number
+}
+
+export interface IPlay {
+    pos: IPosition,
+    tile: Tile | ValleyTile
 }

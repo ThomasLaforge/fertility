@@ -1,5 +1,9 @@
-export class StartingTile {
+import { Tile } from "./Tile";
 
-    constructor(){}
+export class StartingTile extends Tile {
+
+    constructor(){
+        super()
+    }
     
 }

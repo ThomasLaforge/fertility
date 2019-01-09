@@ -1,19 +1,18 @@
-import { Tile } from "./Tile";
-import { Orientation, Rotation } from "./Fertility";
+import { Orientation, Rotation, Field } from "./Fertility";
 import { rotate } from "../Utils";
 
 export class MapPart {
 
-    public tiles: Tile[][]
+    public fields: Field[][]
     public orientation: Orientation
 
-    constructor(tiles: Tile[][], orientation = Orientation.Initial){
+    constructor(tiles: Field[][], orientation = Orientation.Initial){
         this.orientation = orientation
-        this.tiles = tiles
+        this.fields = tiles
     }
 
-    getOrientedTiles(){
-        return this.orientation === Orientation.Initial ? this.tiles : rotate(this.tiles, Rotation.Reverse)
+    getOrientedFields(){
+        return this.orientation === Orientation.Initial ? this.fields : rotate(this.fields, Rotation.Reverse)
     }
 
 }
