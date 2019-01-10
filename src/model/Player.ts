@@ -1,4 +1,4 @@
-import { Symbol, IPosition } from "./Fertility";
+import { Symbol, IPosition, MAX_NB_MONUMENT_BUILDABLE } from "./Fertility";
 import { Metropolis } from "./Metropolis";
 import { ValleyTile } from "./ValleyTile";
 import { District } from "./District";
@@ -37,5 +37,19 @@ export class Player {
 
     getNbMonumentsBuilt(){
         return this.monuments.length
+    }
+    getNbStillBuildableMonuents(){
+        return MAX_NB_MONUMENT_BUILDABLE - this.getNbMonumentsBuilt()
+    }
+
+    canBuildMonument(){
+        return this.getNbMonumentsBuilt() < MAX_NB_MONUMENT_BUILDABLE
+    }
+    buildMonument(pos: IPosition){
+        if(!this.canBuildMonument()){
+            throw Error('try to build a monument but u can\'t');
+            
+        }
+        this.monuments = this.monuments.concat(pos)
     }
 }
