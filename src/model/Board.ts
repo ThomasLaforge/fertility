@@ -1,15 +1,20 @@
 import { MapPart } from "./MapPart";
 import { Tile } from "./Tile";
-import { IPlay, Field } from "./Fertility";
-import { threadId } from "worker_threads";
+import { IPlay, Field, JsonMapPart, DEFAULT_NB_PARTS } from "./Fertility";
+import sampleSize from 'lodash/sampleSize'
+import random from 'lodash/random'
+
+const ALL_MAP_PARTS = (require('../datas/map_parts.json') as JsonMapPart[]).map(mp => new MapPart(mp.fields))
 
 export class Board {
 
     public parts: MapPart[]
     public plays: IPlay[]
+    public startPartIndex: number
 
-    constructor(parts: MapPart[], plays: IPlay[] = []){
-        this.parts = parts
+    constructor(parts?: MapPart[], startPartIndex?: number, plays: IPlay[] = []){
+        this.parts = parts || sampleSize(ALL_MAP_PARTS, DEFAULT_NB_PARTS)
+        this.startPartIndex = startPartIndex === undefined ? random(0, DEFAULT_NB_PARTS - 1) : startPartIndex
         this.plays = plays
     }
 

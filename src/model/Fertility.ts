@@ -1,6 +1,8 @@
 import { Tile } from "./Tile";
 import { ValleyTile } from "./ValleyTile";
 
+export const DEFAULT_NB_PARTS = 3
+export const MAX_NB_MONUMENT_BUILDABLE = 4
 export enum Resource {
     Alabaster = 0,
     Bovines = 1,
@@ -76,4 +78,9 @@ export interface IPosition {
 export interface IPlay {
     pos: IPosition,
     tile: Tile | ValleyTile
+}
+
+// JSONs
+export interface JsonMapPart {
+    fields: number[][]
 }

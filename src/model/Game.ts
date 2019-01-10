@@ -50,7 +50,7 @@ export class Game {
     getScore(p: Player){
         return this.getCornScore(p) +
             this.getGodScore(p) +
-            this.getMonumentScore(p) +
+            this.getMonumentScore(p)
     }
 
 }
