@@ -1,5 +1,6 @@
 import { IReward, Resource, RewardType } from "./Fertility";
 import uniq from 'lodash/uniq'
+import { string } from "prop-types";
 
 export class Shop {
 
@@ -14,7 +15,7 @@ export class Shop {
     }
 
     isComplete(){
-        const comparator = (a, b) => a - b
+        const comparator = (a: number, b: number) => a - b
         const needs = this.needs.slice()
         const brings = this.brings.slice()
         needs.sort(comparator)
@@ -22,8 +23,42 @@ export class Shop {
         return JSON.stringify(brings) === JSON.stringify(needs)
     }
 
+    getResourceNeededByResource(){
+        let resources = uniq(this.needs)
+        let res: {[key: string]: number} = {}
+        resources.forEach( (r: Resource) => {
+            res[r] = res[r] || 0
+            res[r]++
+        })
+        return res
+    }
+
+    getResourceBringsByResource(){
+        let resources = uniq(this.brings)
+        let res: {[key: string]: number} = {}
+        resources.forEach( (r: Resource) => {
+            res[r] = res[r] || 0
+            res[r]++
+        })
+        return res
+    }
+
     getResourceNeeded(){
-        return uniq(this.needs)
+        let resources = uniq(this.needs)
+        let res: {[key: string]: number} = {}
+        let needsByResource = this.getResourceNeededByResource()
+        let bringsByResource = this.getResourceNeededByResource()
+        
+        resources.forEach( (r: Resource) => {
+            let needsForResource = needsByResource[r]
+            let bringsForResource = bringsByResource[r]
+            if(typeof needsForResource !== undefined && typeof bringsForResource !== undefined){
+                res[r] = needsForResource - bringsForResource
+            }
+        })
+        
+        
+        return Object.keys(res).map(r => Number(r))
     }
 
     bring(r: Resource){

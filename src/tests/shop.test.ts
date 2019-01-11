@@ -43,5 +43,12 @@ describe('shop', () => {
         expect(smallShop.brings.length).toBe(2);
     }); 
     
+    it('add too much brings but not in good order', () => {
+        smallShop.bring(Resource.Bovines)
+        smallShop.bring(Resource.Bovines)
+        smallShop.bring(Resource.Grapes)
+        
+        expect(smallShop.isComplete()).toBe(true);
+    }); 
 
 })
