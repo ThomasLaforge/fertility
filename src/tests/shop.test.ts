@@ -11,17 +11,37 @@ describe('shop', () => {
         )
     })
     
-    it('shop need complete', () => {
+    it('shop needs complete by number', () => {
         smallShop.bring(Resource.Grapes)
         expect(smallShop.brings.length).toBe(1);
-    });  
+    });
 
-    it('shop need too much add ', () => {
+    it('shop needs complete by nature - good order', () => {
+        smallShop.bring(Resource.Grapes)
+        smallShop.bring(Resource.Bovines)
+        expect(smallShop.isComplete()).toBe(true);
+    });
+    
+    it('shop needs complete by nature - bad order', () => {
+        smallShop.bring(Resource.Bovines)
+        smallShop.bring(Resource.Grapes)
+        expect(smallShop.isComplete()).toBe(true);
+    });
+
+    it('shop needs not complete by nature', () => {
+        smallShop.bring(Resource.Grapes)
+        smallShop.bring(Resource.Grapes)
+        expect(smallShop.isComplete()).toBe(false);
+    });    
+
+    it('shop needs too much add ', () => {
         smallShop.bring(Resource.Bovines)
         smallShop.bring(Resource.Bovines)
         // try to add
         smallShop.bring(Resource.Bovines)
         
         expect(smallShop.brings.length).toBe(2);
-    });  
+    }); 
+    
+
 })

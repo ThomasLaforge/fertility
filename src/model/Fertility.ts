@@ -84,3 +84,20 @@ export interface IPlay {
 export interface JsonMapPart {
     fields: number[][]
 }
+interface JsonShop {
+    needs: number[],
+    rewards: { type: number, value: number}[]
+}
+export interface JsonDistrict {
+    shops: JsonShop[],
+    cost: number
+}
+export interface JsonValley {
+    resources: number[],
+    nbPair: number,
+    nbByMix: number
+}
+
+export interface JsonMetropolis {
+    shops: JsonShop[]    
+}

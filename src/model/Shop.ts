@@ -14,7 +14,12 @@ export class Shop {
     }
 
     isComplete(){
-        return true
+        const comparator = (a, b) => a - b
+        const needs = this.needs.slice()
+        const brings = this.brings.slice()
+        needs.sort(comparator)
+        brings.sort(comparator)
+        return JSON.stringify(brings) === JSON.stringify(needs)
     }
 
     getResourceNeeded(){
@@ -32,6 +37,12 @@ export class Shop {
         }
 
         return added
+    }
+
+    get score(){
+        return this.isComplete() 
+            ? this.rewards.reduce( (sum, r) => r.type === RewardType.PV ? sum + (r.value as number) : sum, 0) 
+            : 0
     }
 
 }

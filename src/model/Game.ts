@@ -1,11 +1,24 @@
 import { Player } from "./Player";
+import { Board } from "./Board";
+import { Deck, VALLEY_COLLECTION, DISTRICT_COLLECTION } from "./Deck";
+import { ValleyTile } from "./ValleyTile";
+import { District } from "./District";
 
 export class Game {
 
     public players: Player[]
+    public board: Board
+    public valleyDeck: Deck<ValleyTile>
+    public districtDeck: Deck<District>
                 
-    constructor(players: Player[]){
+    constructor(
+        players: Player[], board = new Board(), 
+        valleyDeck = new Deck(VALLEY_COLLECTION), districtDeck = new Deck(DISTRICT_COLLECTION)
+    ){
         this.players = players
+        this.board = board
+        this.valleyDeck = valleyDeck
+        this.districtDeck = districtDeck
     }
 
     // Scores
